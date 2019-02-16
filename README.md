@@ -1,3 +1,9 @@
+git 上传流程：
+
+git add .
+git commit -m "<commit>"
+git push -u aliOrigin master 
+ 
  以下是该项目 redux 流程：
 
  Import createAction from redux-action;                        
