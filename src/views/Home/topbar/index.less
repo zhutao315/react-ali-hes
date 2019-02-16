@@ -1,12 +1,16 @@
 @bar-color: #f4f5f6;
+
 .home-topbar-wrapper {
-    height: 0.4rem;
+    height: 100%;
     line-height: 0.4rem;
     color: @font-normal;
     font-size: 0.16rem;
     text-align: center;
     position: relative;
     background: @bar-color;
+    &.border-half-bottom:before{
+        bottom: -2px;
+    }
     .active {
         color: @theme-red;
     }
@@ -17,6 +21,7 @@
     .top-bar-active {
         top: 0.1rem;
         opacity: 1;
+        display:block;
     }
     .top-menu-more-btn {
         position: absolute;
@@ -46,6 +51,52 @@
             &:before {
                 transform: rotate(90deg);
             }
+        }
+    }
+
+    .swiper-wrapper > .swiper-slide {
+        font-size: 14px;
+        padding: 0 5px;
+        font-weight: bold;
+    }
+    
+}
+.home-topbar > div.topbar-content {
+    display: none;
+    position: fixed;
+    top: 48px;
+    overflow: hidden;
+    height: 40px;
+    width: 100%;
+    z-index: 999999;
+}
+.home-topbar.active > div.topbar-content {
+    display: block;
+    box-shadow: 0 4px 10px #999;
+}
+.top-menu-content {
+    .top-menu-item {
+        display: inline-block;
+        width: 20%;
+        padding: 5px 8px;
+        font-size: 12px;
+        text-align: center;
+        img {
+            width: 40px;
+            height: 40px;
+            margin: 8px auto;
+        }
+    }
+    .top-menu-item.active {
+        img::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+        div{
+            color: #f85959;
         }
     }
 }

@@ -14,7 +14,8 @@
     "plugins": [
         ["transform-runtime", { "polyfill": true }],
         "transform-decorators-legacy",
-        "glamor/babel"
+        "glamor/babel",
+        "react-hot-loader/babel"
     ],
     "env": {
         "test": {

@@ -1,0 +1,65 @@
+.account-contact {
+    margin-top: .1rem;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    .account-contact-header{
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        .contact-title {
+            position: relative;
+            padding-left: 35px;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                top: -8px;
+                background-image: url('/src/assets/images/account/account-set.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                left: -5px;
+            }
+        }
+        .more-question{
+            color: #0084ff;
+        }
+    }
+    .account-contact-content{ 
+        margin: 0 12px 15px;
+        padding-bottom: 20px;
+        .question-card {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            .q-c-desc {
+                text-align: left;
+                font-weight: bold;
+            }
+            .q-c-operat{
+                display: flex;
+                justify-content: space-between;
+                font-size: .12rem;
+                .q-c-gz{
+                    padding: 6px;
+                    color: #999;
+                }
+                .ignore-btn{
+                    background-color:#eee;
+                    padding: 6px;
+                    margin-right: 12px;
+                    display: inline-block;
+                    color:#999;
+                    border-radius: 3px;
+                }
+                .response-btn{
+                    background-color:#5eb0fd2e;
+                    color:#0084ff;
+                    display: inline-block;
+                    padding: 6px;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+}

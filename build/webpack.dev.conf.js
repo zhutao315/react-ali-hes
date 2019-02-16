@@ -48,6 +48,7 @@ const dev = merge(baseConfig, {
             errors: true,
             warnings: false
         },
+        useLocalIp:true,
         quiet: true // 终端输出的只有初始启动信息。 webpack 的警告和错误是不输出到终端的
     },
     plugins: [

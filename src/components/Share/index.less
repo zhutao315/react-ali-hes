@@ -1,0 +1,104 @@
+.share{
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    bottom: 0px;
+    z-index: 999;
+    padding-bottom: 15px;
+    .share-content > div{
+        display: inline-block;
+    }
+    .share-title{
+        font-size: 17px;
+        font-weight: bold;
+        padding: 12px 16px;
+        .icon{
+            float: right;
+        }
+    }
+    .share-other-title{
+        font-size: 13px;
+        font-weight: bold;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #999;
+        .share-line{
+            margin-left: 8px;
+            height: 1px;
+            flex: 1;
+        }
+        .ui-border-t {
+            background-position: left top;
+            background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.5,transparent),color-stop(0.5,#999999),to(#999));
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 2){
+            .ui-border-t {
+                background-position: left top;
+                background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.5,transparent),color-stop(0.5,#999999),to(#999));
+            }
+        }
+    }
+}
+
+.share-content {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    font-size: 12px;
+    padding: 0 10px;
+    .share-icon{
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        background:url("/src/assets/images/share.jpg") no-repeat;
+        background-size: 180px 180px;
+    }
+    
+    .weix{
+        background-position: -63px -13px;
+    }
+    .pengyou{
+        background-position: -116px -65px;
+    }
+    .qq{
+        background-position: -15px -13px;
+    }
+    .qq-kongjian{
+        background-position: -14px -64px;
+    }
+    .weibo{
+        background-position: -115px -12px;
+    }
+    .zhifubao{
+        background-position: -115px -114px;
+    }
+
+    .shouchan{
+        background:url("/src/assets/images/shouchan.png") no-repeat;
+        background-color: #eee;
+        background-position: 50% 50%;
+        background-size: 30px 30px;
+        border-radius: 50px;    
+        margin-bottom: 10px;
+    }
+    .xinxi{
+        background:url("/src/assets/images/xinxi.png") no-repeat;
+        background-color: #eee;
+        background-position: 50% 50%;
+        background-size: 30px 30px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+    }
+    .un-like{
+        background:url("/src/assets/images/chapin1.png") no-repeat;
+        background-color: #eee;
+        background-position: 50% 50%;
+        background-size: 30px 30px;
+        border-radius: 50px;
+        margin-bottom: 10px;    
+    }
+
+}

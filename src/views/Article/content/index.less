@@ -23,23 +23,22 @@
                 color: #ccc;
             }
             .avatar {
-                width: 0.4rem;
-                height: 0.4rem;
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
+                margin-right: 8px;
             }
         }
         .like-box {
-            padding: 0.06rem 0.15rem;
-            border-radius: 0.04rem;
             font-size: 0.14rem;
+            background-color: #3889c2;
+            border-radius: 3px;
+            border: 0;
+            color: #fff;
+            line-height: 22px;
+            padding: 3px 8px;
         }
-        .like-y {
-            color: #f4f4f4;
-            background-color: @theme-bg-red;
-        }
-        .like-n {
-            color: #bbb;
-        }
+        
     }
     h2 {
         margin: 0.1rem 0;
@@ -48,6 +47,8 @@
         margin: 0.2rem 0;
         line-height: 0.25rem;
         font-size: 0.16rem;
+        letter-spacing: .01rem;
+        color: rgba(0,0,0,.8);
     }
     .tags {
         .tag {
@@ -81,4 +82,45 @@
             border-color: @theme-red; 
         }
     }
+
+    .article-block {
+        padding: 0 10px;
+        .article-block-title {
+            font-size: 20px;
+            line-height: 1.2;
+            margin: 0 0 10px;
+            margin-top: 30px;
+            font-weight: 700;
+            height: 2.4em;
+            overflow: hidden;
+        }
+        .cute {
+            color: #3889c2;
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        .blockquote {
+            background-color: #f2f5fb;
+            font-weight: 400;
+            letter-spacing: .01rem;
+            margin: 0 0 20px;
+            padding: 10px;
+            color: #243342;
+            border-radius: 3px;
+        }
+        .desc{
+            line-height: 1.8;
+            margin-top: 12px;
+        }
+        .article-block-images{
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.article-go-back {
+    height: 100%;
+    overflow: hidden;
 }

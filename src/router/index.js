@@ -1,5 +1,6 @@
 import React from 'react'
-import {Route, Switch, Redirect, HashRouter} from 'react-router-dom'
+import {Route, Switch, Redirect, BrowserRouter} from 'react-router-dom'
+import {hot} from 'react-hot-loader'
 import { AnimatedSwitch } from 'react-router-transition'
 import {routes, loyoutRouterMap, notLoyoutRouterMap} from './config'
 import Loyout from 'src/App'
@@ -23,13 +24,13 @@ const pageTransitionsFn = status => {
         obj = {
             atEnter: {offset: 100, opacity: 0},
             atLeave: {offset: -100, opacity: 0},
-            atActive: {offset: 0, opacity: 1}
+            atActive: {offset: 0, opacity: 1, overflow:1}
         }
     }else if (status === 'right' || status === 'bottom'){
         obj = {
             atEnter: {offset: -100, opacity: 0},
             atLeave: {offset: 100, opacity: 0},
-            atActive: {offset: 0, opacity: 1}
+            atActive: {offset: 0, opacity: 1, overflow:1}
         }
     }else{
         obj = {
@@ -43,7 +44,7 @@ const pageTransitionsFn = status => {
 const mapStyleFn = status => styles => {
     let obj = {}
     if (status === 'left' || status === 'right') {
-        obj = { transform: `translateX(${styles.offset}%)`, opacity: styles.opacity }
+        obj = { transform: `translateX(${styles.offset}%)`, opacity: styles.opacity , overflow: styles.overflow ? 'hidden' : 'auto'}
     }else if (status === 'top' || status === 'bottom'){
         obj = { transform: `translateY(${styles.offset}%)`, opacity: styles.opacity }
     }
@@ -61,7 +62,7 @@ class Router extends React.Component {
     render () {
         return (
             <div className={wrapperRule}>
-                <HashRouter>
+                <BrowserRouter>
                     <Route render={ ({location, history}) => {
                         history.slideStatus = history.slideStatus || (history.action === 'POP' ? 'right' : history.slideStatus)
                         const pageTransitions = pageTransitionsFn(history.slideStatus)
@@ -88,14 +89,15 @@ class Router extends React.Component {
                                             }}/>
                                         </Loyout>
                                     }} />
+        
                                 </AnimatedSwitch>
                             </div>
                         )
                     }}/>
-                </HashRouter>
+                </BrowserRouter>
             </div>
         )
         
     }
 }
-export default Router
+export default hot(module)(Router)

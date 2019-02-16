@@ -6,7 +6,7 @@ import connect from 'connect'
 @withRouter
 export default class extends React.Component {
     state = {
-        keywordList: ['Easy-Mock', 'webpack', 'vue', 'Javascript'],
+        keywordList: ['', 'webpack', 'vue', 'Javascript'],
         pageindex: 1,
         keyword: ''
     }

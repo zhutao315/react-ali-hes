@@ -8,7 +8,11 @@ export const common = handleActions({
         state.articleInfo = action.payload
         return {...state}
     },
-    RENDER_ARTICLE: state => ({...state})
+    RENDER_ARTICLE: state => ({...state}),
+    GET_ARTICLE_COMMENTS: (state, action) => {
+        state.articleCommentsInfo = action.payload
+        return {...state}
+    }
 }, state)
 
 const configState = {
@@ -17,6 +21,9 @@ const configState = {
         content: ''
     },
     loading: {
+        show: false
+    },
+    share: {
         show: false
     }
 }
@@ -28,6 +35,18 @@ export const config = handleActions({
     },
     HIDE_ALERT: state => {
         state.alert = {
+            show: false,
+            content: ''
+        }
+        return {...state}
+    },
+    SHOW_SHARE: (state, action) => {
+        state.share.show = true
+        state.share = Object.assign({}, state.share, action.payload)
+        return {...state}
+    },
+    HIDE_SHARE: state => {
+        state.share = {
             show: false,
             content: ''
         }

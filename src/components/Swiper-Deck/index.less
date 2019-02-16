@@ -1,0 +1,138 @@
+.stack {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+  perspective-origin: 50% 180%;
+  -webkit-perspective: 1000px;
+  -webkit-perspective-origin: 50% 180%;
+  margin: 0;
+  padding: 0;
+}
+.stack-item{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.stack-container li.move-back {
+  /* http://matthewlein.com/ceaser/ */
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1); /* older webkit */
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1.515);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.470, 1.515);
+}
+.stack-item>div{
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+}
+
+
+.stack-wrapper{
+  margin: 0 auto;
+  position: relative;
+  z-index: 1000;
+  width: 320px;
+  height: 320px;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+.controls{
+  position: relative;
+  width: 200px;
+  text-align: center;
+  display:flex;/*Flex布局*/
+  display: -webkit-flex; /* Safari */
+  justify-content:space-around;
+  margin: 0 auto;
+  margin-top: 50px
+}
+.controls .button {
+  border: none;
+  background: none;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  border-radius: 50%;
+  background: #fff;
+}
+.button .next{
+  display: inline-block;
+  width: 10px;
+  height:5px;
+  background: rgb(129,212,125);
+  line-height: 0;
+  font-size:0;
+  vertical-align: middle;
+  -webkit-transform: rotate(45deg);
+  left: -5px;
+  top: 2px;
+  position: relative;
+}
+.button .next:after{
+  content:'/';
+  display:block;
+  width: 20px;
+  height:5px;
+  background: rgb(129,212,125);
+  -webkit-transform: rotate(-90deg) translateY(-50%) translateX(50%);
+}
+.button .prev{
+  display: inline-block;
+  width: 20px;
+  height:5px;
+  background: rgb(230,104,104);
+  line-height: 0;
+  font-size:0;
+  vertical-align: middle;
+  -webkit-transform: rotate(45deg);
+}
+.button .prev:after{
+  content:'/';
+  display:block;
+  width: 20px;
+  height:5px;
+  background: rgb(230,104,104);
+  -webkit-transform: rotate(-90deg);
+}
+.controls .text-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: block;
+}
+
+#swiper_stack {
+  height: 125px;
+  .stack-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 4px 10px 0 rgba(0,0,0,0);
+    padding: 15px 12px;
+  }
+}

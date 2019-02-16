@@ -57,6 +57,7 @@ class PullLoad extends React.Component {
         offsetScrollTop: PropTypes.number, //必须大于零，使触发刷新往下偏移，隐藏部分顶部内容
         downEnough: PropTypes.number, //下拉满足刷新的距离
         distanceBottom: PropTypes.number, //距离底部距离触发加载更多
+        hasRefresh: PropTypes.bool,
 
         HeadNode: PropTypes.any, //refresh message react dom
         FooterNode: PropTypes.any, //refresh loading react dom
@@ -69,7 +70,8 @@ class PullLoad extends React.Component {
         hasMore: true,
         downEnough: 100,
         offsetScrollTop: 1,
-        distanceBottom: 50
+        distanceBottom: 50,
+        hasRefresh: true
     }
     state = {
         status: '',
@@ -83,7 +85,7 @@ class PullLoad extends React.Component {
             downEnough, 
             distanceBottom
         }
-        this.container = findDOMNode(this) 
+        this.container = this.props.container? document.querySelector(this.props.container):findDOMNode(this) 
         addEvent(this.container, "touchstart", this.onTouchStart)
         addEvent(this.container, "touchmove", this.onTouchMove)
         addEvent(this.container, "touchend", this.onTouchEnd)
@@ -117,6 +119,7 @@ class PullLoad extends React.Component {
 
     // 下拉刷新
     onPullDownMove = data => {
+        if (!this.props.hasRefresh) return false
         if (this.cannotRefresh()) return false
         let {diffY, startY, curY} = data
         let status
@@ -175,7 +178,7 @@ class PullLoad extends React.Component {
     // 移动
     onTouchMove = e => {
         let scrollTop = this.getScrollTop(),
-            scrollH = this.container.scrollHeight,
+            scrollH = this.container.scrollHeight,  
             w = this.container === document.body ? document.documentElement.clientHeight : this.container.offsetHeight,
             targetEve = e.changedTouches[0],
             curX = targetEve.clientX,
@@ -186,13 +189,16 @@ class PullLoad extends React.Component {
         // 判断垂直移动距离是否大于5 && 横向移动距离小于纵向移动距离
         if (Math.abs(diffY) > 5 && Math.abs(diffY) > Math.abs(diffX)) {
             if (diffY > 5 && scrollTop < this.defaultConfig.offsetScrollTop) { // 下拉刷新
-                this.onPullDownMove({
-                    startY: this.startY,
-                    curY,
-                    diffY
-                })
-                e.preventDefault()
+                if (this.props.hasRefresh) {
+                    this.onPullDownMove({
+                        startY: this.startY,
+                        curY,
+                        diffY
+                    })
+                    e.preventDefault()
+                }
             } else if (diffY < 0 && (scrollH - scrollTop - w) < this.defaultConfig.distanceBottom) { // 上拉加载
+                
                 this.onPullUpMove({
                     startY: this.startY,
                     curY,
@@ -217,7 +223,7 @@ class PullLoad extends React.Component {
             this.onPullDownRefresh()
         }
         e.preventDefault()
-        // e.cancelBubble = true          
+        //e.cancelBubble = true          
     }
     render () {
         const {

@@ -1,0 +1,227 @@
+.video {
+    height: 100vh;
+    padding-top: 50px;
+    .loading-wrapper {
+        position: absolute;
+        top: 0.4rem;
+        width: 100%;
+        height: e("calc(100% - 0.5rem)")
+    }
+    .head {
+        width: 100%;
+        height: 0.5rem;
+        font-size: 0.25rem;
+        padding: 0 15px;
+        position: absolute;
+        top: 0;
+    }
+
+    .video-wrapper {
+        background-color: #f4f4f4;
+        
+        .item {
+            padding: 0.1rem 0;
+            padding-top: 0;
+            .video {
+                width: 100%;
+                height: 2rem;
+                background-color: #000;
+                position: relative;
+                video {
+                    width: 100%;
+                    display: none;
+                    height: 100%;
+                }
+                .canvas-video {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    left: 0;top: 0;
+                    canvas {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                
+                .play {
+                    position: absolute;
+                    left: 50%;top: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: rgba(0, 0, 0, .3);
+                    border-radius: 50%;
+                    z-index: 3;
+                    svg {
+                        color: #fff;
+                        font-size: 0.4rem;
+                    }
+                }
+                .title {
+                    position: absolute;
+                    left: 0;top: 0;
+                    line-height: 0.2rem; 
+                    width: 100%;
+                    color: #f4f4f4;
+                    padding: 0.04rem 0.1rem;
+                    background: linear-gradient(to top , rgba(0, 0, 0, .45) 0%, rgba(0, 0, 0, 0) 100%);
+                    background: -webkit-linear-gradient(to top , rgba(0, 0, 0, .45) 0%, rgba(0, 0, 0, 0) 100%);
+                    small {
+                        font-size: 0.12rem;
+                    }
+                }
+                time {
+                    position: absolute;
+                    right: 0.1rem; bottom: 0.1rem;
+                    font-size: 0.1rem;
+                    padding: 0.04rem 0.08rem;
+                    border-radius: 0.06rem;
+                    background-color: rgba(0, 0, 0, .5);
+                    color: #f4f4f4;
+                }
+                .avatar {
+                    width: 0.4rem;
+                    height: 0.4rem;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom: -0.1rem;
+                    left: 0.2rem;
+                }
+            }
+    
+            .intro {
+                margin-top: 0.1rem;
+                padding: 0 0.1rem;
+                .source {
+                    font-size: 0.14rem;
+                }
+                .box {
+                    >*{
+                        margin-left: 0.14rem;
+                        font-size: 0.12rem;
+                        color: @font-gray;
+                    }
+                }
+            }
+        }
+    
+        .video-header{
+            .video-title{
+                font-weight: bold;
+                font-size: 18px;
+                padding: 5px 12px;
+            }
+            .publish-time{
+                font-size: 12px;
+                color: #999;
+                padding: 8px 12px;
+                small{
+                    margin-left: 15px;
+                }
+            }
+            .video-share{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 10px;
+                padding-left: 12px;
+                padding-right: 15px;
+            }
+            .video-share > div{
+                padding-left: 33px;
+                position: relative;
+                font-size: 13px;
+            }
+            .video-share > div::before{
+                position: absolute;
+                content: '';
+                height: 28px;
+                width: 28px;
+                border-radius: 28px;
+                left: 0px;
+                top: -8px;
+                background:url("/src/assets/images/share.jpg") no-repeat;
+                background-size: 135px 135px;
+            }
+            .video-share > div.video-share-shouchan::before{
+                background-position: 50% 50%;
+                background:url("/src/assets/images/shouchan.png") no-repeat;
+                background-size: contain;
+                width: 25px;
+                height: 25px;
+                left: 6px;
+                top: -5px;
+            }
+            .video-share > div.video-share-shouchan.like::before{
+                background:url("/src/assets/images/like.png") no-repeat;
+                background-position: 50% 50%;
+                background-size: contain;
+            }
+            .video-share > div.video-share-weixin::before{
+                background-position: -54px -15px;
+            }
+            .video-share > div.video-share-pengyouquan::before{
+                background-position: -91px -54px;
+            }
+            .video-share > div.video-share-qq::before{
+                background-position: -15px -15px;
+            }
+        
+        }
+    
+        .video-container{
+            padding: 20px 12px;
+            padding-bottom: 0;
+            .item{
+                display: flex;
+                padding: 8px 0px;
+                .video{
+                    width: 120px;
+                    height: 68px;
+                    time{
+                        right: 0.01rem;
+                        bottom: 0.01rem;
+                    }
+                }
+            }
+            .title {
+                margin-left: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 3px 0;
+                h4{
+                    font-weight: normal;
+                    font-size: 14px;
+                }
+                small{
+                    color: #999;
+                    font-size: 12px;
+                    span{
+                        margin-right: 15px;
+                    }
+                }
+            }
+            .video-link-more {
+                padding: 15px 0;
+                text-align: center;
+                color: #0bbe06;
+            }
+        }
+        
+        .video-comments {
+            border-top: 1px solid #ddd;
+            .video-comments-title {
+                padding: .1rem 0;
+                margin: .15rem .12rem 0 .15rem;
+                box-sizing: border-box;
+                background-color: #eee;
+                text-align: center;
+                border-radius: 36px;
+                color: #0bbe06;
+            }
+            .video-pp-longlist {
+                padding-left: 40px;
+            }
+        }
+    
+    }
+}
+

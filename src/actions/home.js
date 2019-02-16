@@ -1,6 +1,8 @@
 import { createAction } from 'redux-actions'
 import axios from 'utils/axios'
 
+let url = 'https://www.easy-mock.com/mock/5b7647524d2b8f332fda95d9/react/';
+
 // 添加news
 export const addNews = createAction('ADD_NEWS')
 
@@ -14,7 +16,7 @@ export const getListOfNews = ({list, params}, {newsIndex, newsList, hasMore}) =>
         if (obj.list) return
     }
     return new Promise( (resolve, reject) => {
-        axios.get('home/list', params)
+        axios.get(url+'home/list', params)
             .then( res => {
                 const list = res.data.list
                 dispatch(createAction('GET_LIST_OF_NEWS')({list, newsIndex}))
@@ -28,7 +30,7 @@ export const getListOfNews = ({list, params}, {newsIndex, newsList, hasMore}) =>
 // 刷新当前news 的内容
 export const refreshListOfNews = ({list, params}, newsIndex) => dispatch => {
     return new Promise( (resolve, reject) => {
-        axios.get('home/list', params)
+        axios.get(url+'home/list', params)
             .then( res => {
                 const list = res.data.list
                 dispatch(createAction('REFRESH_LIST_OF_NEWS')({list, newsIndex}))

@@ -29,28 +29,35 @@ export default class extends React.Component {
     render () {
         const {infoList, resList} = this.state
         const {user: {user}} = this.props.state
+        user.avatar = require('assets/images/h-avatar.jpg')
+        let default_avatar = require('assets/images/account-circle.svg')+')'
         return (
             <section className="head-wrapper">
-                <div className="hd-t">
-                    <div className="info">
-                        <span className="avatar bg-cover-all" style={{backgroundImage: `${user.name ? 'url('+user.avatar+')':'url('+require('assets/images/account-circle.svg')+')' }`}}></span>
-                        {
-                            user.name ? <span className="name">{user.name}</span> : 
-                                <span className="login" onClick={this.login.bind(this)}>点击登录</span>
-                        }
-                        
-                        
-                    </div>
-                </div>
-                <div className="hd-m df-c">
-                    {
-                        infoList.map( (v, i) => (
-                            <div key={i} className="hd-m-item df-c">
-                                <span>{v.num}</span>
-                                <div className="hd-m-t">{v.title}</div>
+                <div className="head-wrapper-layout" style={{backgroundImage: `${user.name ? 'url('+user.avatar+')':'url('+user.avatar+')' }`}}></div>
+                <div className="head-wrapper-content" >
+                    <div className="hd-t">
+                            <div className="info">
+                                <span className="avatar bg-cover-all" style={{backgroundImage: `${user.name ? 'url('+user.avatar+')':'url('+user.avatar+')' }`}}></span>
+                                {
+                                    user.name ? <span className="name">{user.name}</span> : 
+                                        <span className="login" onClick={this.login.bind(this)}>点击登录</span>
+                                }
+                                
+                                
                             </div>
-                        ))
-                    }
+                            <div></div>
+                        </div>
+                        <div className="hd-m df-c">
+                            {
+                                infoList.map( (v, i) => (
+                                    <div key={i} className="hd-m-item df-c">
+                                        <span>{v.num}</span>
+                                        <div className="hd-m-t">{v.title}</div>
+                                    </div>
+                                ))
+                            }
+                            
+                        </div>
                     
                 </div>
                 <div className="hd-b df-c border-half-bottom">

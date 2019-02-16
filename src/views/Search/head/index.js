@@ -31,7 +31,7 @@ export default class extends React.Component {
                 <div className="search-title df-sb border-half-bottom">
                     <div className="search">
                         <Icon iconName="2fangdajing" className="search-icon"/>
-                        <input type="text" placeholder="搜索些啥呢..." value={this.state.value} 
+                        <input type="text" placeholder="我的地盘搜我的..." value={this.state.value} 
                             onChange={e => {this.handleChange(e.target.value)}}
                             onKeyDown={e => {
                                 e.keyCode === 13 ? this.getSearchData() : null

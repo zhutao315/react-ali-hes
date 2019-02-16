@@ -6,11 +6,14 @@ import 'nprogress/nprogress.css'
 import './styles/index.css'
 import './styles/index.less'
 
+import registerServiceWorker from './registerServiceWorker'
 import Router from './router'
 import store from './store'
 import DevTools from './devTools'
 import 'utils/iconfont'
 import 'utils/rem'
+
+import './views/Home/topbar'
 
 import initReactFastclick from 'react-fastclick'
 initReactFastclick() // 解决IOS onClick不生效
@@ -22,4 +25,7 @@ ReactDom.render(
             {/*process.env.NODE_ENV === 'production'?'':<DevTools/>*/}
         </div>
     </Provider>
-, document.getElementById('app'))
+, document.getElementById('app'));
+
+
+registerServiceWorker();

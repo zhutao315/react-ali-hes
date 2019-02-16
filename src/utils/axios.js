@@ -49,18 +49,22 @@ const baseURL = 'https://easy-mock.com/mock/5a6fe597a52f145df7e8a38a/apis/'
 export default {
     get(url, params) {
         if (!url) return
+        if (!/http/.test(url))
+        url = baseURL + url;
         return axios({
             method: 'get',
-            url: baseURL + url,
+            url: url,
             params,
             timeout: 30000
         }).then(checkStatus).then(checkCode)
     },
     post(url, data) {
         if (!url) return
+        if (!/http/.test(url))
+        url = baseURL + url;
         return axios({
             method: 'post',
-            url: baseURL + url,
+            url: url,
             data: qs.stringify(data),
             timeout: 30000
         }).then(checkStatus).then(checkCode)

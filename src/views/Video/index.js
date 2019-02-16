@@ -15,6 +15,7 @@ export default class extends React.Component {
         getVideoList({
             pageindex: this.state.pageindex
         })
+        console.log('video');
     }
     handleRefresh () {
         this.setState({
@@ -67,11 +68,15 @@ export default class extends React.Component {
         item[attr] = !item[attr]
         this.props.renderVideoList()
     }
+    showShare () {
+        const {state: {user: {user}}, showShare, history} = this.props
+        showShare();
+    }
     render () {
         const {videoList, hasMore} = this.props.state.video
         return (
             <PullLoad handleLoad={this.handleLoad.bind(this)} handleRefresh={this.handleRefresh.bind(this)} hasMore={hasMore}>
-                <article className="video-wrapper">
+                <article className="video-list-wrapper">
                     <div className="video-container">
                         {
                             videoList.map( (item, index) => (
@@ -114,12 +119,15 @@ export default class extends React.Component {
                                                     )
                                                 }
                                             </div>
-                                            <div>
+                                            <div onClick={e => {
+                                                    this.props.history.slideStatus = 'left'
+                                                    this.props.history.push(`/video/${item.id}`)
+                                            }}>
                                                 <Icon iconName="custom-comment"></Icon>
                                                 <span>{item.comment_num || '评论'}</span>
                                             </div>
                                             <div>
-                                                <Icon iconName="More"></Icon>
+                                                <Icon iconName="More" onClick={this.showShare.bind(this)}></Icon>
                                             </div>
                                         </div>
                                     </div>

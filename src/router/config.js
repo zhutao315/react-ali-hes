@@ -43,6 +43,11 @@ export const notLoyoutRouterMap = [
         component: _import_views('Article')
     },
     { 
+        path: '/video/:id', 
+        name: '视频',
+        component: _import_views('Video/VideoDetails')
+    },
+    { 
         path: '/search', 
         name: '搜索',
         component: _import_views('Search')

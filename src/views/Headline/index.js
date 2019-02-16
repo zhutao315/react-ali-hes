@@ -50,7 +50,12 @@ export default class extends React.Component {
     attrReverse (item, attr) {
         item[attr] = !item[attr]
         this.props.renderHeadlineList()
-    }
+	}
+	getClassByLength(length) {
+		if (length % 3 === 0) return 'three';
+		if (length % 2 === 0) return 'two';
+		return 'one';	
+	}
     render () {
     	const {headline: {headlineList, hasMore}} = this.props.state
     	return (
@@ -89,7 +94,7 @@ export default class extends React.Component {
                                         }}>
     								        <p>{item.intro}</p>
     								        <div className="images">
-    								        	{item.images.map( (img, index) => (<img key={index} src={img} className={item.images.length > 2 ? 'three':item.images.length === 2 ? 'two':'one'}/>))}
+    								        	{item.images.map( (img, index) => (<img key={index} src={img} className={this.getClassByLength(item.images.length)}/>))}
     								        </div>
     								        <span>{item.read_num}阅读</span>
     								    </div>

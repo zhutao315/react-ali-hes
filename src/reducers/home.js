@@ -30,16 +30,19 @@ export const home = handleActions({
     GET_LIST_OF_NEWS: (state, action) => {
         const {list, newsIndex} = action.payload
         let news = state.newsList[newsIndex].list
-        if (list.length < 5) {
-            state.newsList[newsIndex].hasMore = false
-        }else{
-            state.newsList[newsIndex].hasMore = true
-        }
+        
         if (news) {
             state.newsList[newsIndex].list = news.concat(list)
         }else{
             state.newsList[newsIndex].list = list
         }
+
+        if (state.newsList[newsIndex].list.length > 15) {
+            state.newsList[newsIndex].hasMore = false
+        }else{
+            state.newsList[newsIndex].hasMore = true
+        }
+
         return {...state}
     },
     // 刷新当前news的内容

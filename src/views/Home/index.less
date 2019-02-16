@@ -1,14 +1,12 @@
 .home-container {
     width: 100%;
-    height: 100%;
     position: relative;
     .home-box {
         width: 100%;
-        height: e("calc(100% - 0.4rem)");
         .swiper-container {
         	height: 100%;
 		    .swiper-slide {
-		    	height: 100%;
+                height: 1px;
                 .swiper-box {
                     width: 100%;
                     height: 100%;
@@ -20,31 +18,88 @@
                         color: @font-normal;
                     }
                     p {
-                        font-size: 0.16rem;
+                        font-size: 0.14rem;
                         line-height: 0.2rem;
-                        margin: 0.1rem 0;
+                        margin: 0.08rem 0;
                     }
                     .small-box {
-                        >* {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        * {
                             display: inline-block;
                             vertical-align: middle;
                             font-size: 0.1rem;
                             margin-right: 0.04rem;
                             color: #999;
                         }
+                        >div:first-child>span:first-child{
+                            margin-right: 20px;
+                        }
+                        >div:last-child{
+                            margin-right: 15px;
+                        }
                     }
                 }
                 .item-l {
                     width: 70%;
-                    padding-right: 10px;
                 }
                 .item-r {
                     width: 30%;
+                    padding-right: 10px;
                     img {
                         width: 100%;
                     }
                 }
-		    }
+            }
+            .swiper-slide-active {
+                height: 100%;
+            }
         }
+    }
+}
+
+.load-badgt {
+    padding: 10px 0;
+    text-align: center;
+    .load-more {
+        display: inline-block;
+        color: #3889c2;
+        border: 1px solid #3889c2;
+        border-radius: 3px;
+        font-size: 12px;
+        padding: 4px 12px;
+        background-color: #fff;
+        margin: 5px;
+    }
+    .load-finish {
+        text-align: center;
+        font-size: 13px;
+        color: #999;
+        padding: 5px;
+    }
+    .ui-loading(){
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 0.15rem;
+        width: 1em;
+        height: 1em;
+        border: 2px solid darken(#EFEFF4, 30%);
+        border-top-color: #fff;
+        border-radius: 100%;
+        animation: circle .8s infinite linear;
+    }
+    &.loading > div {
+        display: none;
+    }
+    i {
+        padding: 12px;
+        margin: 3px;
+        margin-right: 10px; 
+        .ui-loading();
+        display:none;
+    }
+    &.loading > i {
+        display: inline-block;
     }
 }
